@@ -11,7 +11,7 @@ class AppDrawer extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: 100,
+            height: 200,
             width: double.infinity,
             padding: EdgeInsets.only(top: 40),
             alignment: Alignment.center,
