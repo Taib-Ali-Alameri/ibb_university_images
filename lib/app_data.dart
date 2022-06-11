@@ -1,34 +1,34 @@
-import '../models/category.dart';
+import 'models/college.dart';
 
-const Categories_data = [
-  Category(
+const collegesData = [
+  College(
     id: 'c1',
-    title: 'جبال',
+    title: 'عامة',
     imageUrl: 'images/categories/mountains.jpg',
   ),
-  Category(
+  College(
     id: 'c2',
-    title: 'بحيرات',
+    title: 'رئاسة الجامعة',
     imageUrl: 'images/categories/lakes.jpg',
   ),
-  Category(
+  College(
     id: 'c3',
-    title: 'شواطىء',
+    title: 'كلية العلوم',
     imageUrl: 'images/categories/beaches.jpg',
   ),
-  Category(
+  College(
     id: 'c4',
-    title: 'صحارى',
+    title: 'كلية الطب',
     imageUrl: 'images/categories/deserts.jpg',
   ),
-  Category(
+  College(
     id: 'c5',
-    title: 'مدن تاريخية',
+    title: 'كلية الأسنان',
     imageUrl: 'images/categories/ancients.jpg',
   ),
-  Category(
+  College(
     id: 'c6',
-    title: 'أخرى',
+    title: 'كلية الزراعة',
     imageUrl: 'images/categories/snow.jpg',
   ),
 ];

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class CategoryItem extends StatelessWidget {
+class CollegeItem extends StatelessWidget {
   String id;
   String title;
   String ImageUrl;
 
-  CategoryItem(this.id, this.title, this.ImageUrl);
+  CollegeItem(this.id, this.title, this.ImageUrl);
 
   void selectCategory(BuildContext ctx) {
     Navigator.of(ctx).pushNamed('/category-trips', arguments: {

@@ -17,7 +17,7 @@ class AppDrawer extends StatelessWidget {
             alignment: Alignment.center,
             color: Theme.of(context).accentColor,
             child: Text(
-              'دليلك السياحي',
+              'صور جامعة إب',
               style: Theme.of(context).textTheme.headline6,
             ),
           ),
@@ -29,12 +29,12 @@ class AppDrawer extends StatelessWidget {
               Navigator.of(context).pushReplacementNamed('/');
             },
             leading: Icon(
-              Icons.card_travel,
+              Icons.login,
               size: 30,
               color: Colors.blue,
             ),
             title: Text(
-              'الرحلات',
+              'تسجيل دخول',
               style: TextStyle(
                 fontFamily: 'Cairo',
                 fontSize: 24,
@@ -45,12 +45,28 @@ class AppDrawer extends StatelessWidget {
           ListTile(
             onTap: () {},
             leading: Icon(
-              Icons.filter_list,
+              Icons.person,
               size: 30,
               color: Colors.blue,
             ),
             title: Text(
-              'التصفية',
+              'إنشاء حساب',
+              style: TextStyle(
+                fontFamily: 'Cairo',
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          ListTile(
+            onTap: () {},
+            leading: Icon(
+              Icons.add_a_photo,
+              size: 30,
+              color: Colors.blue,
+            ),
+            title: Text(
+              'إضافة صورة',
               style: TextStyle(
                 fontFamily: 'Cairo',
                 fontSize: 24,
