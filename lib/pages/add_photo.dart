@@ -54,8 +54,8 @@ class _AddPhotoState extends State<AddPhoto> {
                     height: 180,
                     child: Column(
                       children: [
-                        Divider(color: Colors.black),
-                        SizedBox(height: 20),
+                        const Divider(color: Colors.black),
+                        const SizedBox(height: 20),
                         Builder(builder: (innerContext) {
                           return Container(
                             decoration: BoxDecoration(
@@ -82,7 +82,7 @@ class _AddPhotoState extends State<AddPhoto> {
                             ),
                           );
                         }),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Builder(builder: (innerContext) {
                           return Container(
                             decoration: BoxDecoration(
@@ -124,33 +124,22 @@ class _AddPhotoState extends State<AddPhoto> {
                   primary: Colors.yellow,
                   onPrimary: Colors.black,
                 ),
-                child: Text("إرسال الصورة"),
+                child: const Text("إرسال الصورة"),
                 onPressed: () async {
                   try {
-                    if (_image == null) {
+                    try {
+                      await Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) => MyApp()));
+                    } catch (e) {
                       Fluttertoast.showToast(
-                        msg: "Please select an image",
+                        msg: "$e",
                         toastLength: Toast.LENGTH_LONG,
                         timeInSecForIosWeb: 1,
                         backgroundColor: Colors.black54,
                         textColor: Colors.white,
                         fontSize: 16.0,
                       );
-                    } else {
-                      try {
-                        await Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) => MyApp()));
-                      } catch (e) {
-                        Fluttertoast.showToast(
-                          msg: "$e",
-                          toastLength: Toast.LENGTH_LONG,
-                          timeInSecForIosWeb: 1,
-                          backgroundColor: Colors.black54,
-                          textColor: Colors.white,
-                          fontSize: 16.0,
-                        );
-                        print(e);
-                      }
+                      print(e);
                     }
                   } catch (e) {
                     print(e);
