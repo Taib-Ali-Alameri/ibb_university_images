@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ibb_university_images/pages/add_product.dart';
+import 'package:ibb_university_images/pages/add_photo.dart';
 import 'package:ibb_university_images/pages/colleges_page.dart';
 import 'package:ibb_university_images/widgets/app_drawer.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -61,22 +61,25 @@ class MyApp extends StatelessWidget {
             color: Colors.green,
           ),
           child: TextButton.icon(
-            label: const Text(
-              "إضافة صورة",
-              style: TextStyle(
-                fontFamily: "Cairo",
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 24,
+              label: const Text(
+                "إضافة صورة",
+                style: TextStyle(
+                  fontFamily: "Cairo",
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                ),
               ),
-            ),
-            icon: Icon(
-              Icons.add_a_photo,
-              color: Colors.white,
-            ),
-            onPressed: () => Navigator.push(
-                context, MaterialPageRoute(builder: (context) => AddProduct())),
-          ),
+              icon: Icon(
+                Icons.add_a_photo,
+                color: Colors.white,
+              ),
+              onPressed: () => Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AddPhoto(),
+                    ),
+                  )),
         ),
       ),
     );

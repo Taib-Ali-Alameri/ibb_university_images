@@ -5,14 +5,14 @@ import 'package:ibb_university_images/main.dart';
 import 'package:provider/provider.dart';
 import 'package:image_picker/image_picker.dart';
 
-class AddProduct extends StatefulWidget {
-  const AddProduct({Key? key}) : super(key: key);
+class AddPhoto extends StatefulWidget {
+  const AddPhoto({Key? key}) : super(key: key);
 
   @override
-  _AddProductState createState() => _AddProductState();
+  _AddPhotoState createState() => _AddPhotoState();
 }
 
-class _AddProductState extends State<AddProduct> {
+class _AddPhotoState extends State<AddPhoto> {
   var titleController = TextEditingController();
   var descriptionController = TextEditingController();
   @override
