@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text(
             "صور جامعة إب",
-            // Problem @
+            // Problem @ Theme Didn't Work Whit AppBar
             // style: Theme.of(context).textTheme.headline6,
             style: TextStyle(
               fontSize: 24,
@@ -77,6 +77,7 @@ class MyApp extends StatelessWidget {
               onPressed: () => Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
+                      // Promlem @ Some Error With "context" ?
                       builder: (context) => AddPhoto(),
                     ),
                   )),

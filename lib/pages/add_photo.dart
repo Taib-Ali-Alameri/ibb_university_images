@@ -19,118 +19,145 @@ class _AddPhotoState extends State<AddPhoto> {
   Widget build(BuildContext context) {
     late File _image = Provider.of(context, listen: true).image;
 
-    return MaterialApp(
-      theme: ThemeData(primaryColor: Colors.green),
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(title: Text('إضافة صورة')),
-        body: Container(
-          padding: EdgeInsets.symmetric(horizontal: 20),
-          child: ListView(children: [
-            TextField(
-              decoration: const InputDecoration(
-                  labelText: "عنوان الصورة", hintText: "اكتب عنوان للصورة"),
-              controller: titleController,
-            ),
-            TextField(
-              decoration: const InputDecoration(
-                  labelText: "وصف الصورة", hintText: "اكتب وصف للصورة"),
-              controller: descriptionController,
-            ),
-            const SizedBox(height: 10),
-            Container(
-              width: double.infinity,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Theme.of(context).primaryColor,
-                  onPrimary: Colors.white,
-                ),
-                child: const Text("اختر صورة"),
-                onPressed: () {
-                  var ad = AlertDialog(
-                    title: Text("اختيار الصورة من:"),
-                    content: Container(
-                      height: 150,
-                      child: Column(
-                        children: [
-                          Divider(color: Colors.black),
-                          Builder(builder: (innerContext) {
-                            return Container(
-                              color: Colors.cyan,
-                              child: ListTile(
-                                leading: Icon(Icons.image),
-                                title: Text("معرض الصور"),
-                                onTap: () {
-                                  context.read().getImage(ImageSource.gallery);
-                                  Navigator.of(innerContext).pop();
-                                },
-                              ),
-                            );
-                          }),
-                          SizedBox(height: 15),
-                          Builder(builder: (innerContext) {
-                            return Container(
-                              color: Colors.cyan,
-                              child: ListTile(
-                                leading: Icon(Icons.camera_alt),
-                                title: Text("الكاميرا"),
-                                onTap: () {
-                                  context.read().getImage(ImageSource.camera);
-                                  Navigator.of(innerContext).pop();
-                                },
-                              ),
-                            );
-                          }),
-                        ],
-                      ),
-                    ),
-                  );
-                  showDialog(context: context, builder: (context) => ad);
-                },
+    return Scaffold(
+      appBar: AppBar(title: const Text('إضافة صورة')),
+      body: Container(
+        padding: EdgeInsets.all(20),
+        child: ListView(children: [
+          TextField(
+            decoration: const InputDecoration(
+                labelText: "عنوان الصورة", hintText: "اكتب عنوان للصورة"),
+            controller: titleController,
+          ),
+          const SizedBox(height: 20),
+          TextField(
+            decoration: const InputDecoration(
+                labelText: "وصف الصورة", hintText: "اكتب وصف للصورة"),
+            controller: descriptionController,
+          ),
+          const SizedBox(height: 30),
+          Container(
+            width: double.infinity,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Theme.of(context).primaryColor,
+                onPrimary: Colors.white,
               ),
-            ),
-            SizedBox(height: 30),
-            Consumer(
-              builder: (context, value, child) => ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.yellow,
-                    onPrimary: Colors.black,
+              child: const Text("اختر صورة"),
+              onPressed: () {
+                var ad = AlertDialog(
+                  title: Text(
+                    "اختيار الصورة من:",
+                    style: TextStyle(color: Colors.green[800]),
                   ),
-                  child: Text("إرسال الصورة"),
-                  onPressed: () async {
-                    try {
-                      if (_image == null) {
+                  content: Container(
+                    height: 180,
+                    child: Column(
+                      children: [
+                        Divider(color: Colors.black),
+                        SizedBox(height: 20),
+                        Builder(builder: (innerContext) {
+                          return Container(
+                            decoration: BoxDecoration(
+                              color: Colors.cyan,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: ListTile(
+                              leading: const Icon(
+                                Icons.image,
+                                color: Colors.white,
+                              ),
+                              title: const Text(
+                                "معرض الصور",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 22,
+                                  fontFamily: "Cairo",
+                                ),
+                              ),
+                              onTap: () {
+                                context.read().getImage(ImageSource.gallery);
+                                Navigator.of(innerContext).pop();
+                              },
+                            ),
+                          );
+                        }),
+                        SizedBox(height: 20),
+                        Builder(builder: (innerContext) {
+                          return Container(
+                            decoration: BoxDecoration(
+                              color: Colors.cyan,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: ListTile(
+                              leading: const Icon(
+                                Icons.camera_alt,
+                                color: Colors.white,
+                              ),
+                              title: const Text(
+                                "الكاميرا",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 22,
+                                  fontFamily: "Cairo",
+                                ),
+                              ),
+                              onTap: () {
+                                context.read().getImage(ImageSource.camera);
+                                Navigator.of(innerContext).pop();
+                              },
+                            ),
+                          );
+                        }),
+                      ],
+                    ),
+                  ),
+                );
+                showDialog(context: context, builder: (context) => ad);
+              },
+            ),
+          ),
+          SizedBox(height: 30),
+          Consumer(
+            builder: (context, value, child) => ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.yellow,
+                  onPrimary: Colors.black,
+                ),
+                child: Text("إرسال الصورة"),
+                onPressed: () async {
+                  try {
+                    if (_image == null) {
+                      Fluttertoast.showToast(
+                        msg: "Please select an image",
+                        toastLength: Toast.LENGTH_LONG,
+                        timeInSecForIosWeb: 1,
+                        backgroundColor: Colors.black54,
+                        textColor: Colors.white,
+                        fontSize: 16.0,
+                      );
+                    } else {
+                      try {
+                        await Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (context) => MyApp()));
+                      } catch (e) {
                         Fluttertoast.showToast(
-                          msg: "Please select an image",
+                          msg: "$e",
                           toastLength: Toast.LENGTH_LONG,
                           timeInSecForIosWeb: 1,
                           backgroundColor: Colors.black54,
                           textColor: Colors.white,
                           fontSize: 16.0,
                         );
-                      } else {
-                        try {
-                          await Navigator.pushReplacement(context,
-                              MaterialPageRoute(builder: (context) => MyApp()));
-                        } catch (e) {
-                          Fluttertoast.showToast(
-                            msg: "$e",
-                            toastLength: Toast.LENGTH_LONG,
-                            timeInSecForIosWeb: 1,
-                            backgroundColor: Colors.black54,
-                            textColor: Colors.white,
-                            fontSize: 16.0,
-                          );
-                          print(e);
-                        }
+                        print(e);
                       }
-                    } catch (e) {
-                      print(e);
                     }
-                  }),
-            ),
-          ]),
-        ),
+                  } catch (e) {
+                    print(e);
+                  }
+                }),
+          ),
+        ]),
       ),
     );
   }
