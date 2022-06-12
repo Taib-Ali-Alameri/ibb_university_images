@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ibb_university_images/pages/add_photo.dart';
+import 'package:ibb_university_images/pages/add_photo_page.dart';
 import 'package:ibb_university_images/pages/colleges_page.dart';
 import 'package:ibb_university_images/widgets/app_drawer.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
