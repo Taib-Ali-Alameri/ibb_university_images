@@ -2,6 +2,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ibb_university_images/main.dart';
+import 'package:ibb_university_images/widgets/my_button.dart';
+import 'package:ibb_university_images/widgets/my_textfield.dart';
 import 'package:provider/provider.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -22,28 +24,24 @@ class _AddPhotoState extends State<AddPhoto> {
     return Scaffold(
       appBar: AppBar(title: const Text('إضافة صورة')),
       body: Container(
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.symmetric(horizontal: 30),
         child: ListView(children: [
-          TextField(
-            decoration: const InputDecoration(
-                labelText: "عنوان الصورة", hintText: "اكتب عنوان للصورة"),
-            controller: titleController,
+          const SizedBox(height: 30),
+          MyTextField(
+            label: "عنوان الصورة",
+            hint: "اكتب عنوان للصورة",
           ),
-          const SizedBox(height: 20),
-          TextField(
-            decoration: const InputDecoration(
-                labelText: "وصف الصورة", hintText: "اكتب وصف للصورة"),
-            controller: descriptionController,
+          const SizedBox(height: 30),
+          MyTextField(
+            label: "وصف الصورة",
+            hint: "اكتب وصف للصورة",
           ),
           const SizedBox(height: 30),
           Container(
             width: double.infinity,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary: Theme.of(context).primaryColor,
-                onPrimary: Colors.white,
-              ),
-              child: const Text("اختر صورة"),
+            child: MyButton(
+              color: Colors.green,
+              title: "اخـتر صورة",
               onPressed: () {
                 var ad = AlertDialog(
                   title: Text(
@@ -117,14 +115,16 @@ class _AddPhotoState extends State<AddPhoto> {
               },
             ),
           ),
-          SizedBox(height: 30),
+          SizedBox(height: 20),
           Consumer(
-            builder: (context, value, child) => ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.yellow,
-                  onPrimary: Colors.black,
-                ),
-                child: const Text("إرسال الصورة"),
+            builder: (context, value, child) => MyButton(
+                // style: ElevatedButton.styleFrom(
+                //   primary: Colors.yellow,
+                //   onPrimary: Colors.black,
+                // ),
+                // child: const Text("إرسال الصورة"),
+                color: Colors.blue,
+                title: "إرسال الصورة",
                 onPressed: () async {
                   try {
                     try {
