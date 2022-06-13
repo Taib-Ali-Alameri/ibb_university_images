@@ -48,7 +48,7 @@ class HomePage extends StatelessWidget {
             color: Colors.white,
           ),
           onPressed: () => Navigator.of(context).pushNamed(
-            AddPhotoPage.ADD_PHOTO_PAGE,
+            AddPhotoPage.PAGE_ROUTE,
           ),
         ),
       ),

@@ -8,7 +8,7 @@ class PhotoDetailsPage extends StatelessWidget {
   // final Function isFavorite;
   // const PhotoDetailsPage(this.manageFavorite, this.isFavorite);
 
-  static const PHOTO_DETAILS_PAGE = '/photo-details';
+  static const PAGE_ROUTE = '/photo-details';
 
   // Widget buildSectionTitle(String titleText, BuildContext context) {
   //   return Container(

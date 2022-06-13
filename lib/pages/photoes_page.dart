@@ -5,7 +5,7 @@ import 'package:ibb_university_images/models/photo.dart';
 import 'package:ibb_university_images/widgets/photo_item.dart';
 
 class PhotoesPage extends StatefulWidget {
-  static const PHOTOES_PAGE = '/photoes-page';
+  static const PAGE_ROUTE = '/photoes-page';
   final List<Photo> availablePhotoes;
   const PhotoesPage({required this.availablePhotoes});
 

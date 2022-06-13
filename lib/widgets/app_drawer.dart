@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:ibb_university_images/pages/add_photo_page.dart';
+import 'package:ibb_university_images/pages/login_page.dart';
+import 'package:ibb_university_images/pages/registration_page.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({Key? key}) : super(key: key);
@@ -27,7 +29,7 @@ class AppDrawer extends StatelessWidget {
           ),
           ListTile(
             onTap: () {
-              Navigator.of(context).pushReplacementNamed('/');
+              Navigator.of(context).pushNamed(LoginPage.PAGE_ROUTE);
             },
             leading: Icon(
               Icons.login,
@@ -44,7 +46,9 @@ class AppDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).pushNamed(RegisterationPage.PAGE_ROUTE);
+            },
             leading: Icon(
               Icons.person,
               size: 30,
@@ -62,7 +66,7 @@ class AppDrawer extends StatelessWidget {
           ListTile(
             onTap: () {
               Navigator.of(context).pushNamed(
-                AddPhotoPage.ADD_PHOTO_PAGE,
+                AddPhotoPage.PAGE_ROUTE,
               );
             },
             leading: Icon(

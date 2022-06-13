@@ -1,10 +1,16 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class MyTextField extends StatelessWidget {
-  const MyTextField({required this.label, required this.hint});
+  const MyTextField(
+      {required this.label,
+      required this.hint,
+      required this.keyBoardType,
+      required onChange(value)});
 
+  final TextInputType keyBoardType;
   final String label;
   final String hint;
 
@@ -12,11 +18,10 @@ class MyTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       textAlign: TextAlign.center,
-      onChanged: (value) {},
       decoration: InputDecoration(
         hintText: hint,
         labelText: label,
-        contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(10),

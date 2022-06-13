@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:ibb_university_images/app_data.dart';
-import 'package:ibb_university_images/pages/add_photo_page.dart';
-import 'package:ibb_university_images/pages/home_page.dart';
-import 'package:ibb_university_images/pages/photo_details_page.dart';
-import 'package:ibb_university_images/pages/photoes_page.dart';
+import 'package:ibb_university_images/pages/login_page.dart';
+import '../app_data.dart';
+import '../pages/add_photo_page.dart';
+import '../pages/home_page.dart';
+import '../pages/photo_details_page.dart';
+import '../pages/photoes_page.dart';
+import 'pages/registration_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
@@ -48,10 +50,12 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (ctx) => const HomePage(collegeList: collegesData),
-        PhotoesPage.PHOTOES_PAGE: (ctx) =>
+        PhotoesPage.PAGE_ROUTE: (ctx) =>
             PhotoesPage(availablePhotoes: photoesData),
-        AddPhotoPage.ADD_PHOTO_PAGE: (ctx) => AddPhotoPage(),
-        PhotoDetailsPage.PHOTO_DETAILS_PAGE: (ctx) => PhotoDetailsPage(),
+        AddPhotoPage.PAGE_ROUTE: (ctx) => AddPhotoPage(),
+        PhotoDetailsPage.PAGE_ROUTE: (ctx) => PhotoDetailsPage(),
+        RegisterationPage.PAGE_ROUTE: (ctx) => RegisterationPage(),
+        LoginPage.PAGE_ROUTE: (ctx) => LoginPage(),
       },
     );
   }

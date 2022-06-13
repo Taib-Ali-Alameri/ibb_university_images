@@ -19,7 +19,7 @@ class PhotoItem extends StatelessWidget {
 
   void SelectTrip(BuildContext context) {
     Navigator.of(context).pushNamed(
-      PhotoDetailsPage.PHOTO_DETAILS_PAGE,
+      PhotoDetailsPage.PAGE_ROUTE,
       arguments: id,
     );
   }

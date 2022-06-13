@@ -9,7 +9,7 @@ class CollegeItem extends StatelessWidget {
   CollegeItem(this.id, this.title, this.ImageUrl);
 
   void selectCategory(BuildContext ctx) {
-    Navigator.of(ctx).pushNamed(PhotoesPage.PHOTOES_PAGE, arguments: {
+    Navigator.of(ctx).pushNamed(PhotoesPage.PAGE_ROUTE, arguments: {
       'id': id,
       'title': title,
     });

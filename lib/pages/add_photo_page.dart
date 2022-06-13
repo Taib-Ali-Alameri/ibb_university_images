@@ -10,7 +10,7 @@ import 'package:image_picker/image_picker.dart';
 class AddPhotoPage extends StatefulWidget {
   const AddPhotoPage({Key? key}) : super(key: key);
 
-  static const ADD_PHOTO_PAGE = '/add-photo';
+  static const PAGE_ROUTE = '/add-photo';
 
   @override
   _AddPhotoPageState createState() => _AddPhotoPageState();
@@ -33,11 +33,15 @@ class _AddPhotoPageState extends State<AddPhotoPage> {
           MyTextField(
             label: "عنوان الصورة",
             hint: "اكتب عنوان للصورة",
+            keyBoardType: TextInputType.name,
+            onChange: (value) {},
           ),
           const SizedBox(height: 30),
           MyTextField(
             label: "وصف الصورة",
             hint: "اكتب وصف للصورة",
+            keyBoardType: TextInputType.name,
+            onChange: (value) {},
           ),
           const SizedBox(height: 30),
           Container(
