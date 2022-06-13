@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ibb_university_images/pages/login_page.dart';
+import 'package:ibb_university_images/pages/test_api.dart';
 import '../app_data.dart';
 import '../pages/add_photo_page.dart';
-import '../pages/home_page.dart';
 import '../pages/photo_details_page.dart';
 import '../pages/photoes_page.dart';
 import 'pages/registration_page.dart';
@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (ctx) => const HomePage(collegeList: collegesData),
+        '/': (ctx) => TestApi(), // HomePage(collegeList: collegesData),
         PhotoesPage.PAGE_ROUTE: (ctx) =>
             PhotoesPage(availablePhotoes: photoesData),
         AddPhotoPage.PAGE_ROUTE: (ctx) => AddPhotoPage(),
