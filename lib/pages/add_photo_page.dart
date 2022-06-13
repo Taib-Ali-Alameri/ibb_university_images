@@ -7,16 +7,19 @@ import 'package:ibb_university_images/widgets/my_textfield.dart';
 import 'package:provider/provider.dart';
 import 'package:image_picker/image_picker.dart';
 
-class AddPhoto extends StatefulWidget {
-  const AddPhoto({Key? key}) : super(key: key);
+class AddPhotoPage extends StatefulWidget {
+  const AddPhotoPage({Key? key}) : super(key: key);
+
+  static const ADD_PHOTO_PAGE = '/add-photo';
 
   @override
-  _AddPhotoState createState() => _AddPhotoState();
+  _AddPhotoPageState createState() => _AddPhotoPageState();
 }
 
-class _AddPhotoState extends State<AddPhoto> {
+class _AddPhotoPageState extends State<AddPhotoPage> {
   var titleController = TextEditingController();
   var descriptionController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     late File _image = Provider.of(context, listen: true).image;

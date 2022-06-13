@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:ibb_university_images/app_data.dart';
 import 'package:ibb_university_images/pages/add_photo_page.dart';
-import 'package:ibb_university_images/pages/colleges_page.dart';
-import 'package:ibb_university_images/widgets/app_drawer.dart';
+import 'package:ibb_university_images/pages/home_page.dart';
+import 'package:ibb_university_images/pages/photo_details_page.dart';
+import 'package:ibb_university_images/pages/photoes_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
@@ -35,54 +37,22 @@ class MyApp extends StatelessWidget {
             color: Colors.white,
             fontFamily: "Cairo",
           ),
-        ),
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            "صور جامعة إب",
-            // Problem @ Theme Didn't Work Whit AppBar
-            // style: Theme.of(context).textTheme.headline6,
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              fontFamily: "Cairo",
-            ),
+          headline5: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+            color: Colors.black54,
+            fontFamily: "Cairo",
           ),
         ),
-        body: CollegesPage(),
-        drawer: AppDrawer(),
-        // Problem @ Can't Control Burger Icon
-        floatingActionButton: Container(
-          width: 200,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: Colors.green,
-          ),
-          child: TextButton.icon(
-              label: const Text(
-                "إضافة صورة",
-                style: TextStyle(
-                  fontFamily: "Cairo",
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24,
-                ),
-              ),
-              icon: Icon(
-                Icons.add_a_photo,
-                color: Colors.white,
-              ),
-              onPressed: () => Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      // Promlem @ Some Error With "context" ?
-                      builder: (context) => AddPhoto(),
-                    ),
-                  )),
-        ),
       ),
+      initialRoute: '/',
+      routes: {
+        '/': (ctx) => const HomePage(collegeList: collegesData),
+        PhotoesPage.PHOTOES_PAGE: (ctx) =>
+            PhotoesPage(availablePhotoes: photoesData),
+        AddPhotoPage.ADD_PHOTO_PAGE: (ctx) => AddPhotoPage(),
+        PhotoDetailsPage.PHOTO_DETAILS_PAGE: (ctx) => PhotoDetailsPage(),
+      },
     );
   }
 }

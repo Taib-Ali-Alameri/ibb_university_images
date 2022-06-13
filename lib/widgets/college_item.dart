@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ibb_university_images/pages/photoes_page.dart';
 
 class CollegeItem extends StatelessWidget {
   String id;
@@ -8,7 +9,7 @@ class CollegeItem extends StatelessWidget {
   CollegeItem(this.id, this.title, this.ImageUrl);
 
   void selectCategory(BuildContext ctx) {
-    Navigator.of(ctx).pushNamed('/category-trips', arguments: {
+    Navigator.of(ctx).pushNamed(PhotoesPage.PHOTOES_PAGE, arguments: {
       'id': id,
       'title': title,
     });

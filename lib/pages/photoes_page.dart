@@ -5,17 +5,16 @@ import 'package:ibb_university_images/models/photo.dart';
 import 'package:ibb_university_images/widgets/photo_item.dart';
 
 class PhotoesPage extends StatefulWidget {
-  static const TRIPS_SCREEN = '/category-trips';
-  final List<Photo> abailablePhotoes;
-
-  PhotoesPage(this.abailablePhotoes);
+  static const PHOTOES_PAGE = '/photoes-page';
+  final List<Photo> availablePhotoes;
+  const PhotoesPage({required this.availablePhotoes});
 
   @override
   State<PhotoesPage> createState() => _PhotoesPageState();
 }
 
 class _PhotoesPageState extends State<PhotoesPage> {
-  late String categoryTitle;
+  late String collegeTitle;
   late List<Photo> displayPhotoes;
 
   @override
@@ -23,8 +22,9 @@ class _PhotoesPageState extends State<PhotoesPage> {
     final routeArgument =
         ModalRoute.of(context)?.settings.arguments as Map<String, String>;
     final collegeId = routeArgument['id'];
-    categoryTitle = routeArgument['title'] as String;
-    displayPhotoes = widget.abailablePhotoes.where((photo) {
+    collegeTitle = routeArgument['title'] as String;
+
+    displayPhotoes = widget.availablePhotoes.where((photo) {
       return photo.collegeId.contains(collegeId!);
     }).toList();
 
@@ -43,7 +43,7 @@ class _PhotoesPageState extends State<PhotoesPage> {
       appBar: AppBar(
         title: Center(
           child: Text(
-            categoryTitle,
+            collegeTitle,
             style: TextStyle(fontSize: 20),
           ),
         ),
@@ -52,6 +52,7 @@ class _PhotoesPageState extends State<PhotoesPage> {
         itemBuilder: (ctx, index) {
           return PhotoItem(
             id: displayPhotoes[index].id,
+            collegeId: displayPhotoes[index].collegeId,
             title: displayPhotoes[index].title,
             imageUrl: displayPhotoes[index].imageUrl,
             description: displayPhotoes[index].description,

@@ -61,8 +61,9 @@ class AppDrawer extends StatelessWidget {
           ),
           ListTile(
             onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => AddPhoto()));
+              Navigator.of(context).pushNamed(
+                AddPhotoPage.ADD_PHOTO_PAGE,
+              );
             },
             leading: Icon(
               Icons.add_a_photo,

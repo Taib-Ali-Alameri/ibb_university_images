@@ -1,10 +1,15 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:ibb_university_images/models/college.dart';
 import '../app_data.dart';
 import '../widgets/college_item.dart';
 
 class CollegesPage extends StatelessWidget {
+  final List<College> collegeList;
+
+  const CollegesPage({required this.collegeList});
+
   @override
   Widget build(BuildContext context) {
     return GridView(
@@ -15,7 +20,7 @@ class CollegesPage extends StatelessWidget {
         mainAxisSpacing: 10,
         crossAxisSpacing: 10,
       ),
-      children: collegesData
+      children: collegeList
           .map(
             (categoryData) => CollegeItem(
               categoryData.id,

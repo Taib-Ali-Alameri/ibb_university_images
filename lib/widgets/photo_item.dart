@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:ibb_university_images/pages/photo_details_page.dart';
 
 class PhotoItem extends StatelessWidget {
   final String id;
+  final String collegeId;
   final String title;
   final String imageUrl;
   final String description;
@@ -9,16 +11,17 @@ class PhotoItem extends StatelessWidget {
   // ignore: use_key_in_widget_constructors
   const PhotoItem({
     required this.id,
+    required this.collegeId,
     required this.title,
     required this.imageUrl,
     required this.description,
   });
 
   void SelectTrip(BuildContext context) {
-    // Navigator.of(context).pushNamed(
-    //   TripDetailsScreen.DETAILS_SCREEN,
-    //   arguments: id,
-    // );
+    Navigator.of(context).pushNamed(
+      PhotoDetailsPage.PHOTO_DETAILS_PAGE,
+      arguments: id,
+    );
   }
 
   @override
@@ -75,35 +78,7 @@ class PhotoItem extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.today,
-                        color: Theme.of(context).accentColor,
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.wb_sunny,
-                        color: Theme.of(context).accentColor,
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.family_restroom,
-                        color: Theme.of(context).accentColor,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+              child: Text(description),
             ),
           ],
         ),
